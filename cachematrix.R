@@ -1,3 +1,7 @@
+## Author:      Jason Simmons
+## Date:        04 September 2017
+
+
 ## Put comments here that give an overall description of what your
 ## functions do
 
