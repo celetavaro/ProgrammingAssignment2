@@ -10,7 +10,7 @@
 makeCacheMatrix <- function(x = matrix()) {
     
     x_i <- NULL
-    set <- function (y){ # setter for matrix
+    set <- function (y){ # constructor for matrix and inverse
         
         x <<- y
         x_i <<- NULL
