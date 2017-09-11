@@ -1,16 +1,15 @@
 ## Author:      Jason Simmons
 ## Date:        04 September 2017
+## Author:      Jason L. Simmons
+## Assignment:  Programmming Assignment 2
 
-
-## Put comments here that give an overall description of what your
-## functions do
-
-## Write a short comment describing this function
+## creates a matrix object that is capable of storing a cached inverse of the 
+## matrix object.
 
 makeCacheMatrix <- function(x = matrix()) {
     
     x_i <- NULL
-    set <- function (y){ # constructor for matrix and inverse
+    set <- function (y){ # constructor for matrix and (empty) inverse
         
         x <<- y
         x_i <<- NULL
@@ -22,9 +21,20 @@ makeCacheMatrix <- function(x = matrix()) {
 
 }
 
-
-## Write a short comment describing this function
+## Returns the inverse of an invertible matrix.  Checks to see if inverse is
+## cached first.  If not found in cache, inverse is calculated, set, and returned.
 
 cacheSolve <- function(x, ...) {
-        ## Return a matrix that is the inverse of 'x'
+
+    checkinv <- x$getinv()
+    if(!is.null(checkinv)){
+        message("getting cached data")
+        return(checkinv)
+    }
+    # if not cached, get matrix, solve for inverse, set inverse, and return inverse
+    mat <- x$get()
+    inv <- solve(mat)
+    x$setinv(inv)
+    inv
+    
 }
